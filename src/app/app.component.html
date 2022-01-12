@@ -1,0 +1,22 @@
+<h3>CRUD Operation in Angular</h3>
+<div class="container">
+  <form #userForm="ngForm">
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputName" placeholder="Enter the Name" name="userName" [(ngModel)]="userObj.userName">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputage" class="form-label">Age</label>
+      <input type="text" class="form-control" id="exampleInputage" placeholder="Enter Age" name="userAge" [(ngModel)]="userObj.userAge">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputcity" class="form-label">City</label>
+      <input type="text" class="form-control" id="exampleInputcity" placeholder="Enter the City" name="userCity" [(ngModel)]="userObj.userCity">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addUser(userForm)" *ngIf="!isEdit">Submit</button>
+    <button *ngIf="isEdit" class="btn btn-primary" (click)="updateUser(userForm)">Update</button>
+  </form>
+</div>
+
+
+<app-user (sendToParent)="receiveUser($event)"></app-user>
